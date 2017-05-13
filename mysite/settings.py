@@ -25,7 +25,7 @@ SECRET_KEY = '0m*gd0z5&-bx=*2tcr(75_90nmk!z+^-om@vcguinz1lvm-9j@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [marcmatias.pythonanywhere.com]
 
 
 # Application definition
