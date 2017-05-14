@@ -13,40 +13,30 @@
 </head>
 <body style="background-color: #f2f2f2">
   <nav class="blue-grey darken-3" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Marcel's Blog</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Sobre</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Sobre</a></li>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    <div class="nav-wrapper container"><a id="logo-container" href="{% url 'post_list' %}" class="brand-logo">Marcel's Blog</a>
     </div>
   </nav>
 
 <main>
-    <div class="section">
+
 
       <!--   Mid Section   -->
-      <div class="container">
+
         {% block content %}
         {% endblock %}
-      </div>
+
 
     <br><br>
 
-    <div class="section">
-
-    </div>
   </div>
 </main>
+<!-- footer -->
     <footer class="page-footer blue-grey darken-2">
       <div class="container">
         <div class="row">
           <div class="col l6 s12">
             <h5 class="white-text">Marcel Bio</h5>
-            <p class="grey-text text-lighten-4">Sou estudante de Sistemas para internet, fiz esse Blog como parte de um projeto de programação em Django Python. Além de Django este Blog foi feito usando o framework materialize para a geração de toda a interface.</p>
+            <p class="grey-text text-lighten-4">Sou estudante de Sistemas para internet, fiz esse Blog como parte de um projeto de programação em Django Python. Além de Django este Blog também utiliza o framework Materialize para a geração de toda a interface.</p>
           </div>
           <div class="col l4 offset-l2 s12">
             <h5 class="white-text">Links</h5>

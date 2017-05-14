@@ -1,15 +1,17 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-<div class="card-panel z-depth-2">
-    <div class="post">
-        {% if post.published_date %}
-            <div class="date">
-                {{ post.published_date }}
-            </div>
-        {% endif %}
-        <h3>{{ post.title }}</h3>
-        <p>{{ post.text|linebreaksbr }}</p>
+<div class="row" style="max-width:900px">
+  <div class="card-panel z-depth-2">
+      <div class="post">
+          {% if post.published_date %}
+              <div class="date">
+                  {{ post.published_date }}
+              </div>
+          {% endif %}
+          <h3>{{ post.title }}</h3>
+          <p style="text-align: justify">{{ post.text|linebreaksbr }}</p>
+      </div>
     </div>
-  </div>
+</div>
 {% endblock %}
