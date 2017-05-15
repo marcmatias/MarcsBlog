@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h5>Novo comentário</h5>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn waves-effect waves-light blue right">Enviar</button>
+    </form>
+  </div>
+{% endblock %}

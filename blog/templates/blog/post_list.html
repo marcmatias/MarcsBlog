@@ -2,17 +2,12 @@
 
 {% block content %}
   {% for post in posts %}
-    <div class="container" style="max-width:600px">
-      <div class="card z-depth-4">
-        <div class="card-content">
+    <div class="container">
         <h5><a href="" style="color: #132731">{{ post.title }}</a></h5>
-          <p style="text-align: justify">{{ post.text|linebreaksbr|slice:":255"}}...</p><br>
+          <p style="text-align: justify">{{ post.text|linebreaksbr|slice:":355"}}...</p><br>
           <p style="color: #aeaeae">Publicado em: {{ post.published_date }}</p>
-        </div>
-        <div class="card-action right-align">
-          <a href="{% url 'post_detail' pk=post.pk %}" class="blue-text text-darken-2">Ler Mais</a>
-        </div>
-      </div>
-    </div>
+          <a href="{% url 'post_detail' pk=post.pk %}" class="btn blue waves-effect waves-light right">Ler Completo</a>
+          <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
+        </div><br><br><br><br><br>
   {% endfor %}
 {% endblock %}
