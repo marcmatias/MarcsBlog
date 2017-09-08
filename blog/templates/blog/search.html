@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+</form><br><br>
+</div><br><br>
+  <ul>
+  {% for post in filter.qs %}
+  <div class="container">
+        <h5><a href="" style="color: #132731">{{ post.title }}</a></h5>
+        <p style="text-align: justify">{{ post.text|linebreaksbr|slice:":355"}}...</p><br>
+        <p style="color: #aeaeae">Publicado em: {{ post.published_date }} </p>
+        <a href="{% url 'post_detail' pk=post.pk %}" class="btn blue waves-effect waves-light right">Ler Completo</a>
+        <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
+        <span class="right" style="margin-right:50px">Autor: {{ post.author }}</span>
+
+
+  </div><br><br><br><br><br>
+  {% empty %}
+  <p>Nenhuma postagem com essas palavras encontrada :(</p>
+  {% endfor %}
+  </ul>
+{% endblock %}
+
+<!-- Input de search -->
+<!-- <a class="waves-effect waves-light btn" href="?title=post">Modal</a> -->

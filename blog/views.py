@@ -4,10 +4,32 @@ from .models import Post, Comment
 from django.shortcuts import render, get_object_or_404
 from .forms import PostForm, CommentForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from .filters import TitleFilter
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
+
+def search(request):
+    post_list = Post.objects.all()
+    post_filter = TitleFilter(request.GET, queryset=post_list)
+    return render(request, 'blog/search.html', {'filter': post_filter})
+
+#def authors(request, pk):
+#    me = get_object_or_404(Post, pk=pk)
+#    posts = Post.objects.filter(author=me)
+    # user = Post.objects.get(Post, username=author)
+    # post = Post.objects.filter(author=user)
+#    return render(request, 'blog/authors.html', {'posts': posts})
+
+def authors(request):
+     me = User.objects.get(username=request.user)
+     posts = Post.objects.filter(author=me)
+    # user = Post.objects.get(Post, username=author)
+    # post = Post.objects.filter(author=user)
+     return render(request, 'blog/authors.html', {'posts': posts})
+
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)

@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  {% for post in posts %}
+    <div class="container">
+        <h5><a href="" style="color: #132731">{{ post.title }}</a></h5>
+          <p style="text-align: justify">{{ post.text|linebreaksbr|slice:":355"}}...</p><br>
+          <p style="color: #aeaeae">Publicado em: {{ post.published_date }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Autor: {{ post.author }}</p>
+          <a href="{% url 'post_detail' pk=post.pk %}" class="btn blue waves-effect waves-light right">Ler Completo</a>
+          <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
+        </div><br><br><br><br><br>
+  {% endfor %}
+{% endblock %}

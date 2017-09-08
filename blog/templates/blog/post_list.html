@@ -1,13 +1,169 @@
 {% extends 'blog/base.html' %}
+{% load staticfiles %}
 
 {% block content %}
-  {% for post in posts %}
+<nav class="white" role="navigation">
+  <div class="nav-wrapper container">
+    <a id="logo-container" href="#" class="brand-logo">Grupo ADM</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#">Contactar</a></li>
+    </ul>
+
+    <ul id="nav-mobile" class="side-nav">
+      <li><a href="#">Contactar</a></li>
+    </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse black-text"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
+
+<div id="index-banner" class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
     <div class="container">
-        <h5><a href="" style="color: #132731">{{ post.title }}</a></h5>
-          <p style="text-align: justify">{{ post.text|linebreaksbr|slice:":355"}}...</p><br>
-          <p style="color: #aeaeae">Publicado em: {{ post.published_date }}</p>
-          <a href="{% url 'post_detail' pk=post.pk %}" class="btn blue waves-effect waves-light right">Ler Completo</a>
-          <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
-        </div><br><br><br><br><br>
-  {% endfor %}
+      <h1 class="header center white-text" style="text-shadow: 1px 1px 2px black;">Eco Manager</h1>
+      <div class="row center">
+        <h5 class="header col s12 light" style="text-shadow: 1px 1px 2px black;">Um moderno sistema de gerenciamento de energia</h5>
+      </div>
+      <div class="row center">
+        <a href="https://docs.google.com/uc?export=download&id=0B1KPxQ6Uj8AGbHFQb1dtME9ub2c" id="download-button" class="btn-large waves-effect waves-light blue lighten-1">Baixar relatório</a>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+  <div class="parallax"><img src="{% static 'energia2.jpg' %}" alt="Unsplashed background img 1"></div>
+</div>
+
+
+<div class="container">
+  <div class="section">
+
+    <!--   Icon Section   -->
+    <div class="row">
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
+          <h5 class="center">Praticidade</h5>
+
+          <p class="light" style="text-align:justify">
+            Acesso remoto através de smartphone ou tablet, para o gerenciamento de energia no seu estabelecimento comercial.
+            Agende o acionamento e desligamento elétrico de sua empresa, desligue salas ou prédios inteiros ao alcance de um toque. </p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+          <h5 class="center">Customização</h5>
+
+          <p class="light" style="text-align:justify">
+            Criação de perfis adaptados a períodos do ano, datas específicas ou características
+            próprias de sua empresa obtidas através de relatórios mensais gerados pelos sensores dos nossos microcontroladores para a gestão
+            personalizada obtendo o máximo de eficiência em seu consumo elétrico geral.
+          </p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+          <h5 class="center">Economia</h5>
+
+          <p class="light" style="text-align:justify">
+            Economize mais com desligamentos agendados e com os perfis customizados. Saiba exatamente quais salas e ambientes
+            do seu negócio são as que mais  consomem energia e receba nossas dicas de lampadas,
+            climatizadores e outros aparelhos elétricos mais modernos econômicos para uma redução eficiente desse consumo.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <div class="row center">
+        <h5 class="header col s12 light white-text" style="text-shadow: 1px 1px 2px black;">Controle e acompanhe seu consumo energético em qualquer lugar</h5>
+      </div>
+    </div>
+  </div>
+  <div class="parallax"><img src="{% static 'Smartphone-Future-0001.jpg' %}" alt="Unsplashed background img 2"></div>
+</div>
+
+<div class="container">
+  <div class="section">
+
+    <div class="row">
+      <div class="col s12 center">
+        <h3><i class="mdi-content-send brown-text"></i></h3>
+        <h4>Contact Us</h4>
+        <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <div class="row center">
+        <h5 class="header col s12 light" style="text-shadow: 1px 1px 2px black;">Economia e contribuição para um mundo melhor</h5>
+      </div>
+    </div>
+  </div>
+  <div class="parallax"><img src="{% static 'background3.jpg' %}" alt="Unsplashed background img 3"></div>
+</div>
+
+<footer class="page-footer white darken-4">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="black-text">Company Bio</h5>
+        <p class="black-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+      </div>
+      <div class="col l3 s12">
+        <h5 class="black-text">Settings</h5>
+        <ul>
+          <li><a class="black-text" href="#!">Link 1</a></li>
+          <li><a class="black-text" href="#!">Link 2</a></li>
+          <li><a class="black-text" href="#!">Link 3</a></li>
+          <li><a class="black-text" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+      <div class="col l3 s12">
+        <h5 class="black-text">Connect</h5>
+        <ul>
+          <li><a class="black-text" href="#!">Link 1</a></li>
+          <li><a class="black-text" href="#!">Link 2</a></li>
+          <li><a class="black-text" href="#!">Link 3</a></li>
+          <li><a class="black-text" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container black-text">
+    Made by <a class="black-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+    </div>
+  </div>
+</footer>
 {% endblock %}
+
+<!--
+{% for post in posts %}
+  <div class="container">
+        <h5><a href="" style="color: #132731">{{ post.title }}</a></h5>
+        <p style="text-align: justify">{{ post.text|linebreaksbr|slice:":355"}}...</p><br>
+        <p style="color: #aeaeae">Publicado em: {{ post.published_date }} </p>
+        <a href="{% url 'post_detail' pk=post.pk %}" class="btn blue waves-effect waves-light right">Ler Completo</a>
+        <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
+        <span class="right" style="margin-right:50px">Autor: {{ post.author }}</span>
+
+  </div><br><br><br><br><br>
+{% endfor %} -->

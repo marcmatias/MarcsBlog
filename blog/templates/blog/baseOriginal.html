@@ -1,0 +1,83 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Blog do Marcel</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body>
+  <nav class="blue-grey darken-3" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="{% url 'post_list' %}" class="brand-logo" style="font-size:20px">Blog do Marcel</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="{% url 'about' %}">Sobre</a></li>
+        <li><a href="{% url 'search' %}">Buscar</a></li>
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'post_new' %}">Nova postagem</a></li>
+          <li><a href="{% url 'authors' %}">Minhas Postagens</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+          <li><a href="{% url 'login' %}">Gerencia</a></li>
+        {% endif %}
+      </ul>
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="{% url 'about' %}">Sobre</a></li>
+        <li><a href="{% url 'search' %}">Buscar</a></li>
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'post_new' %}">Nova postagem</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+          <li><a href="{% url 'login' %}">Gerencia</a></li>
+        {% endif %}
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+<main>
+  <button class="search">Toggle between hiding and showing the paragraphs</button>
+  <p class="searchdiv">This is a paragraph with little content.
+      This is another small paragraph.</p>
+
+  <div class="container"><br>
+        {% block content %}
+        {% endblock %}
+      </div>
+  </div>
+</main>
+    <footer class="page-footer blue-grey darken-2">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Marcel Bio</h5>
+            <p class="grey-text text-lighten-4" style="text-align:justify">Sou estudante de Sistemas para internet, fiz esse Blog como parte de um projeto de programação em Django Python. Além de Django este Blog também utiliza o framework Materialize para a geração de toda a interface.</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Redes</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="https://twitter.com/marcmatias">Twitter</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        © 2017 Made by Marcel
+        </div>
+      </div>
+    </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="{% static 'js/materialize.js' %}"></script>
+  <script src="{% static 'js/init.js' %}"></script>
+
+  </body>
+</html>
