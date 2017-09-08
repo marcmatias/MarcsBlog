@@ -11,10 +11,10 @@ def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
-def search(request):
-    post_list = Post.objects.all()
-    post_filter = TitleFilter(request.GET, queryset=post_list)
-    return render(request, 'blog/search.html', {'filter': post_filter})
+# def search(request):
+#     post_list = Post.objects.all()
+#     post_filter = TitleFilter(request.GET, queryset=post_list)
+#     return render(request, 'blog/search.html', {'filter': post_filter})
 
 #def authors(request, pk):
 #    me = get_object_or_404(Post, pk=pk)
