@@ -6,11 +6,11 @@
   <div class="nav-wrapper container">
     <a id="logo-container" href="#" class="brand-logo">Grupo ADM</a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="#">Contactar</a></li>
+      <li><a href="{% url 'about' %}">Nossa Equipe</a></li>
     </ul>
 
     <ul id="nav-mobile" class="side-nav">
-      <li><a href="#">Contactar</a></li>
+      <li><a href="{% url 'about' %}">Nossa Equipe</a></li>
     </ul>
     <a href="#" data-activates="nav-mobile" class="button-collapse black-text"><i class="material-icons">menu</i></a>
   </div>
@@ -30,7 +30,7 @@
 
     </div>
   </div>
-  <div class="parallax"><img src="{% static 'energia2.jpg' %}" alt="Unsplashed background img 1"></div>
+  <div class="parallax"><img src="{% static 'energiam.jpg' %}" alt="Unsplashed background img 1"></div>
 </div>
 
 
@@ -84,8 +84,13 @@
 <div class="parallax-container valign-wrapper">
   <div class="section no-pad-bot">
     <div class="container">
+      <div class="row center" style="margin-top:-22px">
+        <h5 class="header col s12 light" style="text-shadow: 1px 1px 2px black;">Controle e acompanhe seu consumo energético em qualquer lugar</h5>
+      </div>
       <div class="row center">
-        <h5 class="header col s12 light white-text" style="text-shadow: 1px 1px 2px black;">Controle e acompanhe seu consumo energético em qualquer lugar</h5>
+        <a href="https://docs.google.com/uc?export=download&id=0B1KPxQ6Uj8AGOS1wRnpsb25jQlk" id="download-button" class="btn-large waves-effect waves-light blue lighten-1">Baixar APK</a>
+        <a href="http://www.youtube.com/watch?v=WIcqigws3KI" style="margin-left:10px" id="download-button" class="btn-large waves-effect waves-light orange">Ver Vídeo</a>
+
       </div>
     </div>
   </div>
@@ -97,9 +102,32 @@
 
     <div class="row">
       <div class="col s12 center">
-        <h3><i class="mdi-content-send brown-text"></i></h3>
-        <h4>Contact Us</h4>
-        <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+        <h3><i class="mdi-content-send brown-text"></i>Conhecendo Mais</h3>
+        <ul class="collapsible" data-collapsible="accordion" style="margin-top:25px">
+           <li>
+             <div class="collapsible-header"><i class="material-icons">trending_up</i>Nossa Missão</div>
+             <div class="collapsible-body" style="text-align:justify"><span>Promover uma eficiência energética consistente ao obter um melhor desempenho
+               na produção de um serviço com um menor gasto de energia, usando a modernização de equipamentos e processos no sentido
+               de melhoria em reduzir consumo.</span></div>
+           </li>
+           <li>
+             <div class="collapsible-header active"><i class="material-icons">attach_money</i>Modelo de Negócios</div>
+             <div class="collapsible-body" style="text-align:justify"><span>Nossa empresa oferta seu produto como serviço, portanto estamos adequado aos modelos de SaaS
+                (software as a service), ou seja, oferecemos nosso software de gerenciamento e nossa infraestrutura instalada em sua empresa
+                como um serviço que pode ser pago mensalmente ou anualmente. Com este modelo visamos atingir um público maior tendo em vista
+                que podemos oferecer preços mais competitivos além de poder manter o nosso suporte 24 horas no ar, uma facilidade que está
+                disponível também via aplicativo para solução de quaisquer necessidade em relação ao nosso software ou a nossa infrestrutura.
+              </span></div>
+           </li>
+           <li>
+             <div class="collapsible-header"><i class="material-icons">memory</i>Tecnologia</div>
+             <div class="collapsible-body" style="text-align:justify"><span>Nossa tecnologia funciona com microcontroladores arduíno com sensores instalados junto a placa
+                o que nos permite regular, customizar e monitorar o consumo de energia elétrica de todos os aparelhos ligados a rede elétrica.
+                O gerenciamento será feito através de aplicativo para tablet e smartphone disponível através das maiores lojas de aplicativos da atualidade
+                (iOS, Android e PC). O acesso será feito através da criação de um login e senha aprovado por nossa equipe de gerenciamento, para sua maior segurança.
+              </span></div>
+           </li>
+         </ul>
       </div>
     </div>
 
@@ -111,51 +139,18 @@
   <div class="section no-pad-bot">
     <div class="container">
       <div class="row center">
-        <h5 class="header col s12 light" style="text-shadow: 1px 1px 2px black;">Economia e contribuição para um mundo melhor</h5>
+        <h5 class="header col s12 light" style="text-shadow: 1px 2px 5px black;">Economia e contribuição para um mundo melhor</h5>
       </div>
     </div>
   </div>
-  <div class="parallax"><img src="{% static 'background3.jpg' %}" alt="Unsplashed background img 3"></div>
+  <div class="parallax"><img src="{% static 'f.jpg' %}" alt="Unsplashed background img 3"></div>
 </div>
 
-<footer class="page-footer white darken-4">
-  <div class="container">
-    <div class="row">
-      <div class="col l6 s12">
-        <h5 class="black-text">Company Bio</h5>
-        <p class="black-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
 
-
-      </div>
-      <div class="col l3 s12">
-        <h5 class="black-text">Settings</h5>
-        <ul>
-          <li><a class="black-text" href="#!">Link 1</a></li>
-          <li><a class="black-text" href="#!">Link 2</a></li>
-          <li><a class="black-text" href="#!">Link 3</a></li>
-          <li><a class="black-text" href="#!">Link 4</a></li>
-        </ul>
-      </div>
-      <div class="col l3 s12">
-        <h5 class="black-text">Connect</h5>
-        <ul>
-          <li><a class="black-text" href="#!">Link 1</a></li>
-          <li><a class="black-text" href="#!">Link 2</a></li>
-          <li><a class="black-text" href="#!">Link 3</a></li>
-          <li><a class="black-text" href="#!">Link 4</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="footer-copyright">
-    <div class="container black-text">
-    Made by <a class="black-text text-lighten-3" href="http://materializecss.com">Materialize</a>
-    </div>
-  </div>
-</footer>
 {% endblock %}
 
 <!--
+new
 {% for post in posts %}
   <div class="container">
         <h5><a href="" style="color: #132731">{{ post.title }}</a></h5>
