@@ -25,6 +25,7 @@
           <li class="index"><a href="{% url 'index' %}">Início</a></li>
           <li class="about"><a href="{% url 'about' %}">Nossa Equipe</a></li>
           {% if user.is_authenticated %}
+            <li class="home"><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'logout' %}?next={% url 'index' %}">Sair</a></li>
           {% else %}
             <li class="login"><a href="{% url 'login' %}">Login</a></li>
@@ -35,6 +36,7 @@
           <li class="index"><a href="{% url 'index' %}">Início</a></li>
           <li class="about"><a href="{% url 'about' %}">Nossa Equipe</a></li>
           {% if user.is_authenticated %}
+            <li class="home"><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'logout' %}?next={% url 'index' %}">Sair</a></li>
           {% else %}
             <li class="login"><a href="{% url 'login' %}">Login</a></li>

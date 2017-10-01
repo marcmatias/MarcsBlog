@@ -20,7 +20,7 @@ def index(request):
 def home(request):
     now2 = datetime.datetime.strftime(datetime.datetime.now(),'%H:%M:%S')
     time = datetime.datetime.now().time()
-    agendamentos = Agendamento.objects.filter(date__gte=timezone.now(), on__lte=time, off__gte=time)
+    agendamentos = Agendamento.objects.filter(date=timezone.now(), on__lte=time, off__gte=time)
     a = []
     for agendamento in agendamentos:
         a.append(agendamento.predio.pk)
