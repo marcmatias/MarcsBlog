@@ -1,22 +1,48 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-<div class="container">
+<style media="screen">
+  body{
+    background-color: #E2E2E2;
+  }
+  footer{
+    display: none;
+  }
+  .login{
+    display: none;
+  }
+</style>
+  <div class="row" style="max-width:350px; margin-top:10%">
+    <div class="col s12">
+      <div class="card z-depth-3">
+        <form method="post" action="{% url 'login' %}" style="margin-top:30px">
+        <div class="card-content">
+          <div>
+            <span class="card-title center">Login</span>
+            {% if form.errors %}
+              <p style="text-align:center">Seu nome de usuário ou senha não estão corretos. <br> Tente novamente.</p>
+            {% endif %}
+          </div>
+            {% csrf_token %}
+            <div class="">
+              <div class="input-field">
+                {{ form.username }}
+                <label for="{{form.username.id_for_label}}">Usuário</label>
+              </div>
+              <div class="input-field">
+                {{ form.password }}
+                <label for="{{form.password.id_for_label}}">Senha</label>
+              </div>
 
-
-    {% if form.errors %}
-        <p>Seu nome de usuário ou senha não estão corretos. Tente novamente</p>
-    {% endif %}
-    <form method="post" action="{% url 'login' %}">
-      {% csrf_token %}
-      <div class="container">
-        {{ form.username.label_tag }}
-        {{ form.username }}
-        {{ form.password.label_tag }}
-        {{ form.password }}
-        <input class="btn blue waves-effect waves-light right" type="submit" value="login" />
+            </div>
+        </div>
+        <div class="card-action">
+          <div class="center-align">
+            <button class="btn blue waves-effect waves-light" type="submit">Logar</button>
+          </div>
+        </div>
+        </form>
       </div>
-          <input type="hidden" name="next" value="{{ next }}" />
-    </form>
-</div><br><br><br>
+    </div>
+  </div>
 {% endblock %}
