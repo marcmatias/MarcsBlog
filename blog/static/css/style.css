@@ -117,13 +117,13 @@ input[type=text], input[type=textarea], input[type=password], input[type=url] {
 /* Centralizar card tela de login */
 .card.center-align-login {
   display: table;
-  margin: 150px auto 0;
+  margin: 120px auto 0;
 }
 
 /* Centralizar card tela de comentário */
 .card.center-align-comentario {
   display: table;
-  margin: 90px auto 0;
+  margin: 80px auto 0;
 }
 
 /* TOPNAV */
