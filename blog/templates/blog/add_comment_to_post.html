@@ -1,11 +1,52 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-  <div class="container">
-    <h5>Novo comentário</h5>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn waves-effect waves-light blue right">Enviar</button>
+<div class="card center-align-comentario" style="box-shadow: 0 8px 20px 0 rgba(0,0,0,0.2);">
+  <div class="container" style="padding: 15px 10px 15px;">
+    <h1 style="font-size:15px">Novo comentário <a href="" class="btn" onclick="return Mensagem()" style="text-align:right; margin-left:115px; font-weight: normal;">Javascript</a></h1>
+    <form method="POST" class="post-form">
+      {% csrf_token %}
+      <div>
+        {% if user.is_authenticated %}
+          <input readonly="readonly" name="author" maxlength="200" required="" id="id_author" type="text" value="{{request.user.username}}">
+        {% else %}
+          <input name="author" maxlength="200" required="" id="id_author" type="text" placeholder="Nome">
+        {% endif %}
+      </div>
+      <div>
+        {{ form.text }}
+        <span id="rcomentario"></span>
+      </div>
+      <div style="text-align:center">
+        <button type="submit" class="btn" onclick="return Validate()">Enviar</button>
+      </div>
     </form>
-  </div><br><br><br><br>
+  </div>
+</div>
+
+<script type="text/javascript">
+  function Validate() {
+     var nome = document.getElementById("id_author").value;
+     if(nome == ""){
+        alert("Digite o seu nome");
+        return false;
+      }else
+       if(nome.search(/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/) == -1){
+          alert("ATENÇÃO! Digite apenas letras no nome");
+          return false;
+         }
+     var comentario = document.getElementById("comentario").value;
+     if(comentario.length < 5){
+        alert("O comentário deve conter pelo menos 5 digitos");
+        return false;
+       }
+      else{
+       return true;
+      }
+    }
+
+  function Mensagem() {
+      alert("Para testar a validação deste formulário, escreva números no campo nome, ou escreva menos de 5 digitos no comentário.");
+    }
+</script>
 {% endblock %}

@@ -1,96 +1,54 @@
-<!DOCTYPE html>
 {% load staticfiles %}
-
+<!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>EcoManager</title>
-
-    <!-- CSS  -->
-    <link rel="icon" href="{% static 'ico.png' %}" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
-
-  </head>
-
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Blog do Marcel</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Monda" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
 <body>
-  <header>
-    <nav class="white" role="navigation">
-      <div class="nav-wrapper container">
-        <a id="logo-container" href="{% url 'index' %}" class="brand-logo hide-on-small-only">Grupo ADM</a>
-        <a id="logo-container" href="{% url 'index' %}" class="brand-logo hide-on-med-and-up">ADM</a>
-        <ul class="right hide-on-med-and-down">
-          <li class="index"><a href="{% url 'index' %}">Início</a></li>
-          <li class="about"><a href="{% url 'about' %}">Nossa Equipe</a></li>
-          {% if user.is_authenticated %}
-            <li class="home"><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'logout' %}?next={% url 'index' %}">Sair</a></li>
-          {% else %}
-            <li class="login"><a href="{% url 'login' %}">Login</a></li>
-          {% endif %}
-        </ul>
+<header>
+  <div class="topnav" id="myTopnav">
+    <a href="{% url 'post_list' %}" id="home">Inicio</a>
+    <a href="{% url 'search' %}" id="pesquisa">Pesquisa</a>
+    {% if user.is_authenticated %}
+      <a href="{% url 'post_new' %}">Nova postagem</a>
+      <!-- <a href="{% url 'authors' %}">Minhas Postagens</a> -->
+      <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+    <a href="{% url 'login' %}" id="gerencia">Gerencia</a>
+    {% endif %}
+    <a href="{% url 'about' %}" id="sobre">Sobre</a>
+    <span href="">Marc's Blog</span>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()" style="font-size:15px;">&#9776;</a>
+  </div>
+</header>
 
-        <ul id="nav-mobile" class="side-nav">
-          <li class="index"><a href="{% url 'index' %}">Início</a></li>
-          <li class="about"><a href="{% url 'about' %}">Nossa Equipe</a></li>
-          {% if user.is_authenticated %}
-            <li class="home"><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'logout' %}?next={% url 'index' %}">Sair</a></li>
-          {% else %}
-            <li class="login"><a href="{% url 'login' %}">Login</a></li>
-          {% endif %}
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse black-text"><i class="material-icons">menu</i></a>
-      </div>
-    </nav>
-  </header>
+<main class="content">
+  {% block content %}
+  {% endblock %}
+</main>
 
-  <main>
-    {% block content %}
-    {% endblock %}
-  </main>
+<footer class="footer">
+  <p>&#169; Marcel Marques 2017</p>
+</footer>
 
-  <footer class="page-footer white z-depth-3">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="black-text">Sobre projeto</h5>
-          <p class="black-text text-lighten-4" style="text-align:justify">Somos um grupo de estudantes do curso de Sistema Para Internet
-             e estamos trabalhando nesse projeto que será parte das atividades comprobatórias de aprendizado do ultimo estágio.
-          </p>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="black-text">Acesso</h5>
-          <ul>
-            <li><a href="{% url 'login' %}">Login</a></li>
-            <li><a href="{% url 'about' %}">Sobre Equipe</a></li>
-            <!-- <li><a class="black-text" href="#!">Link 3</a></li>
-            <li><a class="black-text" href="#!">Link 4</a></li> -->
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="black-text">Contatos</h5>
-          <ul>
-            <li><span class="black-text">(00) 0000-0000</span></li>
-            <li><span class="black-text">email@email.com</span></li>
-            <!-- <li><a class="black-text" href="#!">Link 3</a></li>
-            <li><a class="black-text" href="#!">Link 4</a></li> -->
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container black-text">
-      By <a class="black-text text-lighten-3" href="{% url 'about' %}">ADM</a>
-      </div>
-    </div>
-  </footer>
-  <!--  Scripts-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="{% static 'js/materialize.js' %}"></script>
-  <script src="{% static 'js/init.js' %}"></script>
-</body>
 
+<!--  Scripts -->
+<script type="text/javascript">
+  /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+  function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+          x.className += " responsive";
+      } else {
+          x.className = "topnav";
+      }
+  }
+</script>
+  </body>
 </html>

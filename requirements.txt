@@ -1,0 +1,4 @@
+Django==1.11.2
+django-filter==1.0.4
+django-filters==0.2.1
+pytz==2017.2
