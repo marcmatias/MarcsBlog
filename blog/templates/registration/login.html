@@ -1,12 +1,13 @@
 {% extends "blog/base.html" %}
 
-{% block content %}
-<style media="screen">
+{% block style %}
   #gerencia{
     background-color: #35AFD2;
     color: white;
   }
-</style>
+{% endblock %}
+
+{% block content %}
 <div class="card center-align-login" style="box-shadow: 0 8px 20px 0 rgba(0,0,0,0.2);">
   <div class="container" style="padding: 15px 10px 15px;">
     {% if form.errors %}

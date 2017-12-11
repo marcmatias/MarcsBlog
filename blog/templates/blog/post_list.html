@@ -1,12 +1,13 @@
 {% extends 'blog/base.html' %}
 
-{% block content %}
-<style media="screen">
+{% block style %}
   #home{
     background-color: #35AFD2;
     color: white;
   }
-</style>
+{% endblock %}
+
+{% block content %}
   {% for post in posts %}
   <div class="card">
     <div style="text-align:center">
@@ -27,7 +28,7 @@
           </div>
     </div>
   </div>
-  <script type="text/javascript">
+  <script>
     function Comentario() {
        var getInput = 1;
        localStorage.setItem("storageName",getInput);

@@ -42,7 +42,7 @@
         <div class="container" style="padding: 15px 10px 15px">
           <div style="font-size:12px; text-align:right">{{ comment.created_date }}</div>
           <strong>{{ comment.author }}</strong>
-          <p>{{ comment.text|linebreaks }}</p>
+          {{ comment.text|linebreaks }}
           {% if user.is_authenticated or comment.approved_comment %}
                 {% if not comment.approved_comment %}
                 <div style="text-align:right">
@@ -74,7 +74,7 @@
       </div>
     </div>
     {% endif %}
-    <script type="text/javascript">
+    <script>
       var get = localStorage.getItem("storageName");
       if (get == 1){
         window.scrollTo(0,document.body.scrollHeight);

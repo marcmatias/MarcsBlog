@@ -9,6 +9,10 @@
   <link href="https://fonts.googleapis.com/css?family=Monda" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <style media="screen">
+    {% block style %}
+    {% endblock %}
+  </style>
 </head>
 <body>
 <header>
@@ -23,7 +27,7 @@
     <a href="{% url 'login' %}" id="gerencia">Gerencia</a>
     {% endif %}
     <a href="{% url 'about' %}" id="sobre">Sobre</a>
-    <span href="">Marc's Blog</span>
+    <span>Marc's Blog</span>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()" style="font-size:15px;">&#9776;</a>
   </div>
 </header>
@@ -39,7 +43,7 @@
 
 
 <!--  Scripts -->
-<script type="text/javascript">
+<script>
   /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
   function myFunction() {
       var x = document.getElementById("myTopnav");
