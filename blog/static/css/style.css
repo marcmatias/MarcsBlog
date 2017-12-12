@@ -105,13 +105,22 @@ button:hover {
     cursor: pointer;
 }
 
-input[type=text], input[type=textarea], input[type=password], input[type=url] {
+input[type=text], input[type=textarea], input[type=password], input[type=url], input[type=number] {
     padding: 10px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+}
+
+/* Remover botões do type number */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
 }
 
 /* Centralizar card tela de login */
@@ -179,6 +188,12 @@ input[type=text], input[type=textarea], input[type=password], input[type=url] {
   .card{
     margin: 15px 15px;
   }
+  /* Centralizar card tela de comentário */
+  .card.center-align-comentario {
+    display: table;
+    margin: 20px auto 0;
+  }
+  
   .topnav span {
     display: none;
   }
@@ -215,4 +230,12 @@ img {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
+}
+
+.avatar{
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  display: inline;
+  margin-top:25px
 }
