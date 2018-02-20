@@ -1,0 +1,62 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="card center-align-comentario" style="box-shadow: 0 8px 20px 0 rgba(0,0,0,0.2);">
+  <div class="container" style="padding: 15px 10px 15px;">
+    <h1 style="font-size:15px">Novo comentário <a href="" class="btn" onclick="return Mensagem()" style="text-align:right; margin-left:125px; font-weight: normal;">Javascript</a></h1>
+    <form method="POST" class="post-form">
+      {% csrf_token %}
+      <div>
+        {% if user.is_authenticated %}
+          <input readonly="readonly" name="author" maxlength="200" required="" id="id_author" type="text" value="{{request.user.username}}"><br>
+        {% else %}
+          <input name="author" maxlength="200" required="" id="id_author" type="text" placeholder="Nome"><br>
+        {% endif %}
+        <input name="telefone" type="number" placeholder="Telefone" id="telefone"><br>
+        <input name="email" type="text" placeholder="E-mail" id="email"><br>
+      </div>
+      <div>
+        {{ form.text }}
+      </div>
+      <p style="font-size:10px; margin-top:-5px">* Nome, E-mail e Comentário obrigatório</p>
+      <div style="text-align:center">
+        <button type="submit" class="btn" onclick="return Validate()">Enviar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  function Validate() {
+   var nome = document.getElementById("id_author").value;
+   var email = document.getElementById("email").value;
+   var comentario = document.getElementById("comentario").value;
+   var telefone = document.getElementById("telefone").value;
+   if(nome == ""){
+      alert("Digite o seu nome");
+      return false;
+    }
+   if(nome.search(/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/) == -1){
+      alert("ATENÇÃO! Digite apenas letras no nome");
+      return false;
+   }
+   if (email.search(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/) == -1) {
+     alert('Digite um e-mail válido');
+     return false;
+   }
+   if(comentario.length < 5){
+      alert("O comentário deve conter pelo menos 5 digitos");
+      return false;
+     }
+  }
+  function Mensagem() {
+      alert("Para testar a validação deste formulário, escreva números no campo nome, escreva menos de 5 digitos no comentário, ou tente digitar um email inválido.");
+    }
+
+
+    // if(telefone.search(/\d/) == -1){
+    //   alert("ATENÇÃO! Digite apenas números no telefone");
+    //   return false;
+    //  }
+</script>
+{% endblock %}
