@@ -1,0 +1,30 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<div class="card center-align-comentario" style="box-shadow: 0 8px 20px 0 rgba(0,0,0,0.2);">
+  <div class="container" style="padding: 15px 10px 15px;">
+    <form method="POST">{% csrf_token %}
+      <h1 style="font-size:14px">Nova Postagem</h1>
+      <div style="margin-top:10px">
+        {{ form.url.label_tag }}<br>
+        {{ form.url }}
+      </div>
+      <div>
+        {{ form.title.label_tag }}<br>
+        {{ form.title }}
+      </div>
+      <div>
+        {{ form.text.label_tag }}<br>
+        {{ form.text }}
+      </div>
+        <button type="submit" class="save btn btn-default blue right">Salvar</button>
+    </form>
+    </div>
+</div>
+{% endblock %}
+
+        <!-- {{ form.text }}
+<textarea name="text" cols="40" rows="10" required="" id="id_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+
+<textarea name="text" cols="40" rows="10" required="" id="id_text"></textarea> -->
